@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Finance Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar"></aside>
+
+
+    <div class="profile-modal-backdrop hidden" id="profile-modal-backdrop" aria-hidden="true">
+        <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title">
+            <button class="profile-modal-close" id="profile-modal-close" type="button" aria-label="Close profile">×</button>
+
+            <div class="profile-modal-header">
+                <div class="profile-modal-avatar">JT</div>
+                <div>
+                    <h2 id="profile-modal-title">John Tom</h2>
+                    <p class="profile-modal-subtitle">Account profile</p>
+                </div>
+            </div>
+
+            <div class="profile-modal-grid">
+                <div class="profile-detail">
+                    <span class="profile-detail-label">User Name</span>
+                    <span class="profile-detail-value">John Tom</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="profile-detail-label">BTC Address</span>
+                    <span class="profile-detail-value">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="profile-detail-label">Username</span>
+                    <span class="profile-detail-value">@johntom</span>
+                </div>
+                <div class="profile-detail">
+                    <span class="profile-detail-label">Email Address</span>
+                    <span class="profile-detail-value">johntom@email.com</span>
+                </div>
+                <div class="profile-detail profile-detail-full">
+                    <span class="profile-detail-label">Email Verification</span>
+                    <span class="profile-detail-value profile-status verified">Verified</span>
+                </div>
+            </div>
+
+            <div class="profile-modal-actions">
+                <button class="btn-danger" id="delete-account-btn" type="button">Delete Account</button>
+                <button class="btn-secondary" id="restrict-account-btn" type="button">Restrict Account</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="topbar" id="topbar-header">
+
+            <button class="profile profile-button" id="profile-trigger" type="button" aria-haspopup="dialog" aria-controls="profile-modal-backdrop">
+
+                <div class="avatar">
+                    JT
+                </div>
+
+                <div>
+                    <div class="welcome">
+                        Hi
+                    </div>
+
+                    <div class="username">
+                        John Tom
+                    </div>
+                </div>
+
+            </button>
+
+            <div class="topbar-actions" aria-label="Header actions">
+                <div class="live-price" aria-live="polite">
+                    <span class="live-dot"></span>
+                    <span class="live-label">BTC</span>
+                    <strong id="btc-price">--</strong>
+                </div>
+
+                <div class="header-support-wrap">
+                    <button class="icon-button" id="support-toggle" type="button" aria-label="Customer care" aria-haspopup="dialog" aria-expanded="false">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M6 8a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2a4 4 0 0 1-2 3.5"></path>
+                            <path d="M10 15a4 4 0 0 0 4 0"></path>
+                            <path d="M8 18a6 6 0 0 1 8 0"></path>
+                            <path d="M9 11h6"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="support-page hidden" id="support-page" aria-hidden="true">
+                    <div class="support-page-inner">
+                        <div class="support-page-top">
+                            <button class="support-page-close" id="support-page-close" type="button" aria-label="Close support">←</button>
+                            <div>
+                                <div class="support-page-eyebrow">Customer Care</div>
+                                <h3>How can we help?</h3>
+                            </div>
+                        </div>
+
+                        <div class="support-page-grid">
+                            <button class="support-card" type="button" data-action="call">
+                                <span class="support-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.5v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h2a2 2 0 0 1 2 1.7c.1.8.5 3.5 1.3 5.1 2.4A2 2 0 0 1 13 8.3l-1.2 2.6a15.9 15.9 0 0 0 3.9 3.9l2.6-1.2a2 2 0 0 1 2.3.4c1.1 1.6 1.9 3.3 2.4 5.1.4.9.3 1.9-.2 2.7Z"></path></svg></span>
+                                <span>Call us</span>
+                            </button>
+                            <button class="support-card" type="button" data-action="chat">
+                                <span class="support-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10"></path><path d="M7 11h6"></path><path d="M5 3h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-4 4v-4H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path></svg></span>
+                                <span>Chat with us</span>
+                            </button>
+                            <button class="support-card" type="button" data-action="dispute">
+                                <span class="support-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v5c0 4.2 2.4 7.8 8 10 5.6-2.2 8-5.8 8-10V6l-8-3Z"></path><path d="M9.5 12 11 13.5 14.5 10"></path></svg></span>
+                                <span>Dispute status</span>
+                            </button>
+                            <button class="support-card" type="button" data-action="faq">
+                                <span class="support-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9a3 3 0 1 1 3 3v1"></path><path d="M12 17h.01"></path><circle cx="12" cy="12" r="9"></circle></svg></span>
+                                <span>FAQs</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="icon-button" type="button" aria-label="Notifications">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M15 17H5a2 2 0 0 1-2-2v-1a4 4 0 0 1 4-4V8a4 4 0 1 1 8 0v2a4 4 0 0 1 4 4v1a2 2 0 0 1-2 2z"></path>
+                        <path d="M10 19a2 2 0 0 0 4 0"></path>
+                    </svg>
+                </button>
+
+                <button class="icon-button" id="transactions-toggle" type="button" aria-label="Transactions" aria-haspopup="dialog" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 7V5a1 1 0 0 1 1-1h2"></path>
+                        <path d="M4 17v2a1 1 0 0 0 1 1h2"></path>
+                        <path d="M20 7V5a1 1 0 0 0-1-1h-2"></path>
+                        <path d="M20 17v2a1 1 0 0 1-1 1h-2"></path>
+                        <path d="M7 12h10"></path>
+                        <path d="M12 7v10"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </header>
+
+        <div class="topbar-compact" id="topbar-compact" hidden>
+            <div class="compact-brand">
+                <div class="compact-logo">₿</div>
+                <div>
+                    <div class="compact-title">Nexos</div>
+                    <div class="compact-subtitle">Crypto Finance</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="transactions-page hidden" id="transactions-page" aria-hidden="true">
+            <div class="transactions-page-inner">
+                <div class="transactions-page-top">
+                    <button class="support-page-close" id="transactions-page-close" type="button" aria-label="Close transactions">←</button>
+                    <div>
+                        <div class="support-page-eyebrow">Transactions</div>
+                        <h3>All activity</h3>
+                    </div>
+                </div>
+
+                <div class="transactions-controls">
+                    <label class="transactions-control">
+                        <span>From</span>
+                        <input type="date" value="2024-01-01" />
+                    </label>
+                    <label class="transactions-control">
+                        <span>To</span>
+                        <input type="date" value="2024-12-31" />
+                    </label>
+                    <button class="btn-secondary transactions-print" type="button">Print statement</button>
+                </div>
+
+                <div class="transactions-list">
+                    <div class="transaction-item">
+                        <div>
+                            <div class="transaction-name">Deposit</div>
+                            <div class="transaction-date">Jan 03, 2024 · Completed</div>
+                        </div>
+                        <div class="amount positive">+0.120 BTC</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div>
+                            <div class="transaction-name">Transfer</div>
+                            <div class="transaction-date">Feb 14, 2024 · Completed</div>
+                        </div>
+                        <div class="amount">-0.045 BTC</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div>
+                            <div class="transaction-name">Savings</div>
+                            <div class="transaction-date">Mar 21, 2024 · Completed</div>
+                        </div>
+                        <div class="amount positive">+0.080 BTC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="home-section">
+        <div id="dashboard-view">
+        <!-- BALANCE -->
+
+        <section class="balance-grid">
+
+            <div class="card balance-card">
+
+                <div class="label">
+                    Available Balance
+                </div>
+
+                <div class="balance">
+                    0.000 BTC
+                </div>
+
+                <div class="usd">
+                    USD Equivalent: $0.00
+                </div>
+
+                <div class="balance-actions">
+
+                    <button class="btn-primary">
+                        + Add Funds
+                    </button>
+
+                    <button class="btn-secondary">
+                        Withdraw
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card convert-card" id="convert-card">
+
+                <div class="transaction-header">
+
+                    <strong>USD Balance</strong>
+
+                    <span class="label">
+                        BTC → USD
+                    </span>
+
+                </div>
+
+                <div class="balance" id="converted-usd">$0.00</div>
+
+                <button class="convert-trigger" id="convert-trigger" type="button">
+                    Convert BTC to USD
+                </button>
+
+                <div class="convert-panel hidden" id="convert-panel">
+                    <label class="convert-label" for="btc-convert-input">Amount of BTC</label>
+                    <input id="btc-convert-input" type="number" min="0" step="0.001" placeholder="0.000" />
+                    <div class="convert-summary" id="convert-summary">USD value: $0.00</div>
+                </div>
+
+            </div>
+
+           
+
+        </section>
+
+        <section class="news-banner" aria-label="Admin announcement">
+            <span class="news-pill">LIVE</span>
+            <div class="news-carousel">
+                <div class="news-card active">New earning feature is now live for verified users.</div>
+                <div class="news-card">Weekly reward drops begin tomorrow at 9:00 AM.</div>
+                <div class="news-card">Security checks are now faster for all account holders.</div>
+                <div class="news-card">New referral bonuses are available for premium members.</div>
+                <div class="news-card">Admins have unlocked priority support for active users.</div>
+            </div>
+        </section>
+
+        <!-- ACTIONS -->
+
+        <section class="actions">
+
+            <div class="action">
+                <div class="action-icon">↗</div>
+                <div class="action-title">Spend</div>
+                <div class="action-subtitle">Use your balance</div>
+            </div>
+
+            <div class="action action-save" tabindex="0" role="button" aria-label="Open save savings section">
+                <div class="action-icon">＋</div>
+                <div class="action-title">Save</div>
+                <div class="action-subtitle">Grow your money</div>
+            </div>
+
+            <div class="action action-borrow" tabindex="0" role="button" aria-label="Open borrow loan section">
+                <div class="action-icon">↙</div>
+                <div class="action-title">Borrow</div>
+                <div class="action-subtitle">Get a crypto loan</div>
+            </div>
+
+            <div class="action action-invest" tabindex="0" role="button" aria-label="Open Invest portfolio">
+                <div class="action-icon">◈</div>
+                <div class="action-title">Invest</div>
+                <div class="action-subtitle">Build your portfolio</div>
+            </div>
+
+        </section>
+
+        <!-- TRANSACTIONS -->
+
+        <section class="card">
+
+            <div class="transaction-header">
+
+                <strong>Transaction History</strong>
+
+                <a href="#">
+                    View all →
+                </a>
+
+            </div>
+
+            <div class="transaction">
+
+                <div class="transaction-left">
+
+                    <div class="coin">↓</div>
+
+                    <div>
+                        <div class="transaction-name">
+                            Deposit
+                        </div>
+
+                        <div class="transaction-date">
+                            No transactions yet
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="amount">
+                    0.000 BTC
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="card newsletter-section" aria-label="Latest newsletter">
+            <div class="transaction-header newsletter-header">
+                <div>
+                    <strong>Newsletter</strong>
+                    <div class="transaction-date">Fresh insights from the market</div>
+                </div>
+                <span class="newsletter-pill">New</span>
+            </div>
+
+            <div class="newsletter-grid" id="newsletter-grid"></div>
+        </section>
+
+        <div class="newsletter-detail hidden" id="newsletter-detail" aria-hidden="true">
+            <div class="newsletter-detail-card" role="dialog" aria-modal="true" aria-labelledby="newsletter-detail-title">
+                <button class="newsletter-detail-close" id="newsletter-detail-close" type="button" aria-label="Close article">×</button>
+                <img class="newsletter-detail-image" id="newsletter-detail-image" src="" alt="Newsletter preview" />
+                <div class="newsletter-detail-body">
+                    <div class="newsletter-detail-meta" id="newsletter-detail-meta"></div>
+                    <h3 id="newsletter-detail-title"></h3>
+                    <p id="newsletter-detail-excerpt"></p>
+                    <div class="newsletter-detail-content" id="newsletter-detail-content"></div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </section>
+
+        <section id="borrow-fullview" class="hidden" aria-label="Borrow loan details">
+            <div class="borrow-view-shell">
+                <div class="borrow-view-top">
+                    <button class="btn-secondary" id="borrow-back-btn" type="button" aria-label="Back">←</button>
+                    <div class="borrow-view-title">Borrow</div>
+                </div>
+
+                <div class="borrow-card">
+                    <div class="borrow-top">
+                        <div>
+                            <div class="borrow-eyebrow">Active Loan</div>
+                            <div class="borrow-title">Active</div>
+                        </div>
+                        <span class="borrow-status">Active</span>
+                    </div>
+
+                    <div class="borrow-grid">
+                        <div class="borrow-item">
+                            <div class="borrow-label">Loan Balance</div>
+                            <div class="borrow-value">0.0000 BTC</div>
+                            <div class="borrow-subvalue">$0.00</div>
+                        </div>
+                        <div class="borrow-item">
+                            <div class="borrow-label">Collateral</div>
+                            <div class="borrow-value">0.0000 BTC</div>
+                            <div class="borrow-subvalue">$0.00</div>
+                        </div>
+                        <div class="borrow-item">
+                            <div class="borrow-label">Days Until Due</div>
+                            <div class="borrow-value">0 Days</div>
+                            <div class="borrow-subvalue">Due: N/A</div>
+                        </div>
+                        <div class="borrow-item">
+                            <div class="borrow-label">Loan-to-Value</div>
+                            <div class="borrow-value">70%</div>
+                            <div class="borrow-subvalue">Max LTV Ratio</div>
+                        </div>
+                    </div>
+
+                    <div class="borrow-progress">
+                        <div class="borrow-progress-top">
+                            <span>Repayment Progress</span>
+                            <strong>0% Paid</strong>
+                        </div>
+                        <div class="borrow-progress-bar"><span></span></div>
+                        <div class="borrow-progress-meta">Paid: 0.0000 BTC · Remaining: 0.0000 BTC</div>
+                    </div>
+
+                    <div class="borrow-actions">
+                        <button class="btn-secondary" type="button">Repayment</button>
+                        <button class="btn-secondary" type="button">Withdraw Loan</button>
+                        <button class="btn-primary" type="button">Collateral</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="save-fullview" class="hidden" aria-label="Save savings details">
+            <div class="borrow-view-shell">
+                <div class="borrow-view-top">
+                    <button class="btn-secondary" id="save-back-btn" type="button" aria-label="Back">←</button>
+                    <div class="borrow-view-title">Save</div>
+                </div>
+
+                <div class="borrow-card">
+                    <div class="borrow-top">
+                        <div>
+                            <div class="borrow-eyebrow">Active Savings</div>
+                            <div class="borrow-title">Active</div>
+                        </div>
+                        <span class="borrow-status">Active</span>
+                    </div>
+
+                    <div class="borrow-grid">
+                        <div class="borrow-item">
+                            <div class="borrow-label">Locked Amount</div>
+                            <div class="borrow-value">0.0000 BTC</div>
+                            <div class="borrow-subvalue">$0.00</div>
+                        </div>
+                        <div class="borrow-item">
+                            <div class="borrow-label">Current Value</div>
+                            <div class="borrow-value">$0.00</div>
+                            <div class="borrow-subvalue">Live estimate</div>
+                        </div>
+                        <div class="borrow-item">
+                            <div class="borrow-label">Interest Earned</div>
+                            <div class="borrow-value">0.0000 BTC</div>
+                            <div class="borrow-subvalue">$0.00</div>
+                        </div>
+                        <div class="borrow-item">
+                            <div class="borrow-label">APY Rate</div>
+                            <div class="borrow-value">0.0%</div>
+                            <div class="borrow-subvalue">0 Days Term</div>
+                        </div>
+                    </div>
+
+                    <div class="borrow-progress">
+                        <div class="borrow-progress-top">
+                            <span>Time Remaining</span>
+                            <strong>0 Days</strong>
+                        </div>
+                        <div class="borrow-progress-bar"><span></span></div>
+                        <div class="borrow-progress-meta">Started: N/A · Matures: N/A</div>
+                    </div>
+
+                    <div class="borrow-actions">
+                        <button class="btn-secondary" type="button">View Details</button>
+                        <button class="btn-primary" type="button">Withdraw Early</button>
+                    </div>
+
+                    <div class="borrow-progress" style="margin-top: 12px;">
+                        <div class="borrow-progress-top">
+                            <span>Total at Maturity</span>
+                            <strong>0.0000 BTC</strong>
+                        </div>
+                        <div class="borrow-progress-meta">Estimated Value: $0.00</div>
+                        <div class="borrow-progress-meta" style="margin-top: 6px;">Interest is compounded daily. Early withdrawal may result in penalty fees.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="invest-fullview" class="hidden" aria-label="Invest portfolio">
+            <div class="invest-view-shell">
+                <div class="invest-view-top">
+                    <button class="btn-secondary" id="invest-back-btn" type="button" aria-label="Back">←</button>
+                    <div class="invest-view-actions">
+                        <label class="invest-search" aria-label="Search stocks">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="11" cy="11" r="6"></circle>
+                                <path d="M20 20L16.65 16.65"></path>
+                            </svg>
+                            <input type="text" placeholder="Search stocks or themes" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="portfolio-shell">
+                    <div class="portfolio-grid">
+                        <div class="portfolio-card-block">
+                            <div class="portfolio-block-title">Stock Headlines</div>
+                            <div class="portfolio-tags">
+                                <button class="portfolio-tag portfolio-filter active" type="button" data-filter="all">All Stocks</button>
+                                <button class="portfolio-tag portfolio-filter" type="button" data-filter="popular">Most Popular</button>
+                                <span class="portfolio-tag">AI Stocks to Watch in 2025 🤖</span>
+                                <span class="portfolio-tag">Agriculture 🌾</span>
+                                <span class="portfolio-tag">Bank ETFs 🏦</span>
+                                <span class="portfolio-tag">Big Bank Energy 🏛️</span>
+                                <span class="portfolio-tag">Big Stable Companies 🏢</span>
+                                <span class="portfolio-tag">Bill Ackman's Top 6 Stocks 👨‍💼</span>
+                                <span class="portfolio-tag">Bill Gates' Top 20 Stocks 👨‍💼</span>
+                                <span class="portfolio-tag">Carl Icahn's Top 12 Stocks 👨‍💼</span>
+                                <span class="portfolio-tag">Commodities 🪙</span>
+                                <span class="portfolio-tag">Currency ETFs 💵</span>
+                                <span class="portfolio-tag">Defensive ETFs 🛡️</span>
+                                <span class="portfolio-tag">Dividend Stocks 💰</span>
+                                <span class="portfolio-tag">ETFs 📈</span>
+                                <span class="portfolio-tag">Entertainment 📺</span>
+                                <span class="portfolio-tag">Expert Picks: Emmet Savage 👤</span>
+                                <span class="portfolio-tag">Expert Picks: Ross Gerber 👤</span>
+                                <span class="portfolio-tag">Fixed Income ETFs 💸</span>
+                                <span class="portfolio-tag">Food 🍱</span>
+                                <span class="portfolio-tag">Halal Stocks &amp; ETFs ☪️</span>
+                                <span class="portfolio-tag">Health 🏥</span>
+                                <span class="portfolio-tag">Invest in Real Estate 🏠</span>
+                                <span class="portfolio-tag">Invest in Sports 🏀</span>
+                                <span class="portfolio-tag">Investing Starterpack 🌱</span>
+                                <span class="portfolio-tag">Ken Griffin's Top 12 Stocks 👨‍💼</span>
+                                <span class="portfolio-tag">Manufacturing 🏭</span>
+                                <span class="portfolio-tag">Most Bought Stocks 💰</span>
+                                <span class="portfolio-tag">Must Watch Stocks 👀</span>
+                                <span class="portfolio-tag">Nancy Pelosi's Last Buys 👩</span>
+                                <span class="portfolio-tag">Oil &amp; Gas ETFs ⛽</span>
+                                <span class="portfolio-tag">Oil &amp; Gas Stocks 🛢️</span>
+                                <span class="portfolio-tag">Retail 🛍️</span>
+                                <span class="portfolio-tag">Rory's Picks 👤</span>
+                                <span class="portfolio-tag">S&amp;P 500 ETFs 📊</span>
+                                <span class="portfolio-tag">Self-Driving Car Stocks 🚗</span>
+                                <span class="portfolio-tag">Technology 💻</span>
+                                <span class="portfolio-tag">The Magnificent 7 🧠</span>
+                                <span class="portfolio-tag">The Moneystart Portfolio 📋</span>
+                                <span class="portfolio-tag">The Weed Industry 🌿</span>
+                                <span class="portfolio-tag">Transportation ✈️</span>
+                                <span class="portfolio-tag">Vroom: The EV Industry 🚘</span>
+                                <span class="portfolio-tag">Warren Buffett's Portfolio 👴</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="more-section" class="hidden">
+            <div class="more-shell">
+                <div class="more-card">
+                    <div class="more-header">
+                        <div class="more-title">More</div>
+                        <p class="more-copy">Account shortcuts and settings</p>
+                    </div>
+                    <div class="menu-list" id="menuList" aria-label="More settings"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="membership-section" class="hidden">
+            <div class="membership-shell">
+                <div class="membership-card">
+                    <div class="membership-header">
+                        <div class="membership-title">Premium Membership</div>
+                        <p class="membership-copy">Unlock exclusive benefits and priority services</p>
+                    </div>
+
+                    <div class="membership-intro">
+                        <strong>One Membership. Infinite Potential.</strong>
+                        <span>See what sets us apart.</span>
+                    </div>
+
+                    <div class="membership-grid">
+                        <div class="membership-feature-item">Secure Bitcoin Custody</div>
+                        <div class="membership-feature-item">Daily Interest Paid in Bitcoin</div>
+                        <div class="membership-feature-item">Global Debit Card with Zero FX Fees</div>
+                        <div class="membership-feature-item">Buy and Sell with Best-in-Class Bitcoin Price</div>
+                        <div class="membership-feature-item">Bitcoin-Backed Loan</div>
+                        <div class="membership-feature-item">Beneficiary Feature</div>
+                    </div>
+
+                    <div class="membership-price-box">
+                        <div class="membership-price">$1,000</div>
+                        <div class="membership-period">USD/year</div>
+                        <div class="membership-note">Required for membership</div>
+                    </div>
+
+                    <div class="membership-actions">
+                        <button class="btn-secondary" type="button">Cancel</button>
+                        <button class="btn-primary" type="button">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="finance-fullview" id="finance-fullview" hidden>
+            <div class="finance-header">
+                <h2>Finance</h2>
+                <div class="settings-icon" aria-label="Settings"></div>
+            </div>
+
+            <div class="finance-tabs" role="tablist" aria-label="Finance sections">
+                <button class="finance-tab active" type="button" data-target="savings-panel">Savings</button>
+                <button class="finance-tab" type="button" data-target="loan-panel">Loan</button>
+            </div>
+
+            <div class="finance-content">
+                <div id="savings-panel" class="finance-panel-card savings-card">
+                    <div class="savings-shell">
+                        <div class="savings-intro">
+                            <h3>Bitcoin Savings Plans</h3>
+                            <p>Lock your Bitcoin and earn guaranteed returns</p>
+                        </div>
+
+                        <div class="savings-section-label">Choose Your Savings Term</div>
+                        <div class="savings-terms" id="savings-terms">
+                            <button class="savings-term-card" type="button" data-days="30" data-apy="5.5">
+                                <span class="savings-term-days">30</span>
+                                <span class="savings-term-unit">Days</span>
+                                <span class="savings-term-apy">5.5% APY</span>
+                            </button>
+                            <button class="savings-term-card" type="button" data-days="60" data-apy="7.2">
+                                <span class="savings-term-days">60</span>
+                                <span class="savings-term-unit">Days</span>
+                                <span class="savings-term-apy">7.2% APY</span>
+                            </button>
+                            <button class="savings-term-card" type="button" data-days="90" data-apy="9.8">
+                                <span class="savings-term-days">90</span>
+                                <span class="savings-term-unit">Days</span>
+                                <span class="savings-term-apy">9.8% APY</span>
+                            </button>
+                            <button class="savings-term-card" type="button" data-days="180" data-apy="12.5">
+                                <span class="savings-term-days">180</span>
+                                <span class="savings-term-unit">Days</span>
+                                <span class="savings-term-apy">12.5% APY</span>
+                            </button>
+                            <button class="savings-term-card active" type="button" data-days="360" data-apy="15.0">
+                                <span class="savings-best-badge">BEST</span>
+                                <span class="savings-term-days">360</span>
+                                <span class="savings-term-unit">Days</span>
+                                <span class="savings-term-apy">15.0% APY</span>
+                            </button>
+                        </div>
+
+                        <div class="savings-field-group">
+                            <label class="savings-label" for="btc-amount">Amount to Save (BTC)</label>
+                            <input id="btc-amount" class="savings-input" type="number" min="0" step="0.001" placeholder="0.000">
+                        </div>
+
+                        <div class="savings-field-group">
+                            <label class="savings-label" for="usd-value">USD Value</label>
+                            <input id="usd-value" class="savings-input" type="text" readonly value="$0.00">
+                        </div>
+
+                        <div class="savings-summary">
+                            <div class="summary-row"><span>Selected term</span><strong id="summary-term">360 Days</strong></div>
+                            <div class="summary-row"><span>Estimated earnings</span><strong id="summary-earnings">$0.00</strong></div>
+                            <div class="summary-row"><span>Total at maturity</span><strong id="summary-total">$0.00</strong></div>
+                        </div>
+
+                        <div class="savings-info-box">
+                            <div class="savings-info-title">Important Information</div>
+                            <ul class="savings-info-list">
+                                <li>Your Bitcoin will be locked for the selected term</li>
+                                <li>Interest is compounded daily and paid at maturity</li>
+                                <li>Early withdrawal may result in penalty fees</li>
+                                <li>Funds are protected and fully insured</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="loan-panel" class="finance-panel-card loan-card hidden">
+                    <div class="loan-bank-shell">
+                        <div class="loan-bank-hero">
+                            <div class="loan-bank-badge">Dark crypto bank</div>
+                            <h3>Borrow up to USD 1 million instantly</h3>
+                            <p>Zero fees • Cash in under a minute</p>
+                            <p>Spend via debit cards, bank, or crypto transfer</p>
+                            <div class="loan-bank-pill-row">
+                                <span>Asogwa Iloabuchi</span>
+                                <span>30, 90, 180 or 365 days</span>
+                            </div>
+                            <div class="loan-bank-pill-row loan-bank-pill-row--secondary">
+                                <span>Low-interest APR</span>
+                                <span>No minimum installments</span>
+                                <span>Repay anytime</span>
+                                <span>In USD or BTC, no penalties</span>
+                                <span>Instant access</span>
+                                <span>Cash arrives in under 1 minute</span>
+                            </div>
+                        </div>
+
+                        <div class="loan-bank-grid">
+                            <section class="loan-bank-card">
+                                <div class="loan-field-group">
+                                    <label class="loan-label" for="btc-amount-loan">BTC collateral</label>
+                                    <div class="loan-input-shell">
+                                        <input id="btc-amount-loan" type="number" min="0" step="0.0001" placeholder="0.0000">
+                                        <span class="loan-currency-tag">BTC</span>
+                                    </div>
+                                </div>
+
+                                <div class="loan-conversion">
+                                    <span>Live USD value</span>
+                                    <strong id="usd-value-loan">$0.00</strong>
+                                </div>
+
+                                <div class="loan-slider-card">
+                                    <div class="loan-slider-head">
+                                        <span>Loan-to-Value</span>
+                                        <span id="ltv-value-loan">50%</span>
+                                    </div>
+                                    <input type="range" id="ltv-slider-loan" min="20" max="80" value="50">
+                                    <div class="loan-slider-footer">
+                                        <span>Low risk</span>
+                                        <span>Up to 80%</span>
+                                    </div>
+                                </div>
+
+                                <div class="loan-period-card">
+                                    <label class="loan-label">Loan period</label>
+                                    <div class="loan-period-grid">
+                                        <button class="loan-period-btn active" type="button" data-days="30">30 Days</button>
+                                        <button class="loan-period-btn" type="button" data-days="90">90 Days</button>
+                                        <button class="loan-period-btn" type="button" data-days="180">180 Days</button>
+                                        <button class="loan-period-btn" type="button" data-days="365">365 Days</button>
+                                    </div>
+                                </div>
+
+                                <button id="calculate-loan-btn" class="loan-calc-btn" type="button">Calculate loan</button>
+                            </section>
+
+                            <aside class="loan-bank-card loan-summary-card">
+                                <div class="loan-summary-header">Projected repayment</div>
+                                <div class="loan-summary-value" id="summary-loan">$0.00</div>
+                                <div class="loan-summary-meta">Estimated loan amount</div>
+                                <div class="loan-summary-list">
+                                    <div class="loan-summary-row">
+                                        <span>Collateral</span>
+                                        <strong id="summary-collateral">$0.00</strong>
+                                    </div>
+                                    <div class="loan-summary-row">
+                                        <span>Interest</span>
+                                        <strong id="summary-interest">$0.00</strong>
+                                    </div>
+                                    <div class="loan-summary-row">
+                                        <span>Total repayment</span>
+                                        <strong id="summary-repayment">$0.00</strong>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+</div>
+
+<div class="footer-menu">
+    <div class="footer-item active" data-target="home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
+        <span>Home</span>
+    </div>
+    <div class="footer-item finance-root" data-target="finance">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm2 3v2h12V8Zm0 4v2h8v-2Z"/></svg>
+        <span>Finance</span>
+    </div>
+    <div class="footer-item" data-target="membership">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v5c0 4.4 2.7 8.2 8 10 5.3-1.8 8-5.6 8-10V6z"></path><path d="M9.5 12.5 11 14l3.5-4"></path></svg>
+        <span>Membership</span>
+    </div>
+    <div class="footer-item" data-target="more">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Zm1 2v8h12V8Zm2 2h8v2H8Zm0 4h5v2H8Z"/></svg>
+        <span>More</span>
+    </div>
+</div>
+
+<script src="javascript/script.js"></script>
+</body>
+</html>
