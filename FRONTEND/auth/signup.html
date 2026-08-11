@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Create account | NIXXA</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-app">
+    <div style="display:grid;place-items:center;margin:0 0 8px">
+      <header class="auth-header" >
+        <span></span><span>Create account</span>
+        <span>
+        </span>
+      </header>
+      <img src="../IMG/work_img nexos.png" alt="NIXXA logo" style="display:block;width:82px;height:82px;object-fit:contain;border-radius:20px;filter:drop-shadow(0 8px 15px rgba(255,122,47,.2));margin-bottom:3px"><p class="tagline">Your secure global banking experience starts here.</p></div><div class="progress" style="margin-top:10px"><i id="progress-bar"></i></div>
+    <form id="signup-form">
+      <section class="step active" data-step="1"><label class="field">First name<input id="first-name" required placeholder="Enter your first name"></label><label class="field">Last name<input id="last-name" required placeholder="Enter your last name"></label></section>
+      <section class="step" data-step="2"><h1>When were you born?</h1><p>We need this to confirm that you are eligible to open an account.</p><label class="field">Your age<input id="age" inputmode="numeric" placeholder="Enter your age"></label><div class="birth-preview" id="birth-preview">Your estimated year of birth will appear here.</div><div class="field-row"><label class="field">Day<select id="birth-day"><option value="">Day</option></select></label><label class="field">Month<select id="birth-month"><option value="">Month</option></select></label></div></section>
+      <section class="step" data-step="3"><h1>How can we reach you?</h1><p>Select your country and enter your mobile number and email address.</p><label class="field">Country<select id="country"><option value="">Choose a country</option><option value="NG">Nigeria</option><option value="GH">Ghana</option><option value="KE">Kenya</option></select></label><label class="field">Mobile number<span class="phone-field"><span class="code-box" id="country-code">+000</span><input id="phone" inputmode="tel" placeholder="Mobile number"></span></label><label class="field">Email address<input id="email" type="email" placeholder="you@example.com"></label></section>
+      <section class="step" data-step="4"><h1>Secure your account</h1><p>Create a strong password that only you know.</p><label class="field">Password<span class="password-field"><input id="password" type="password" placeholder="Create a password"><button type="button" data-toggle="password">Show</button></span></label><p class="hint">Use at least 8 characters, including a number.</p><label class="field">Retype password<span class="password-field"><input id="confirm-password" type="password" placeholder="Retype your password"><button type="button" data-toggle="confirm-password">Show</button></span></label></section>
+      <section class="step" data-step="5"><h1>Review your details</h1><p>Check your information before creating your NIXXA account.</p><div class="review"><div><span>Name</span><b id="review-name"></b></div><div><span>Date of birth</span><b id="review-dob"></b></div><div><span>Country</span><b id="review-country"></b></div><div><span>Mobile number</span><b id="review-phone"></b></div><div><span>Email address</span><b id="review-email"></b></div></div><label class="terms"><input type="checkbox" id="terms"><span>I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</span></label></section>
+      <p class="error" id="error"></p><div class="actions"><button class="previous" id="previous" type="button">Back</button><button class="next" id="next" type="button">Next</button><button class="create" id="create" type="submit" hidden>Create account</button></div>
+    </form>
+    <p class="switch-auth">Already have an account? <a href="login.html">Log in</a></p>
+  </main>
+  <script src="auth.js"></script>
+</body>
+</html>
