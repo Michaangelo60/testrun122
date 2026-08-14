@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>NIXXA Membership</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<main class="membership-app">
+  <header><a href="../index.html" aria-label="Go to homepage">&#8592;</a><span>Membership</span><button id="help">?</button></header>
+  <section class="hero"><p class="eyebrow">NIXXA MEMBERSHIP</p><h1>Banking without limits.</h1><p>Unlock a premium global banking experience designed for your next move.</p></section>
+  <section class="card-stage"><div class="virtual-card"><div class="card-top"><span class="card-brand">NIXXA</span><span class="card-tier">GOLD</span></div><div class="chip"></div><div class="card-number">&#8226;&#8226;&#8226;&#8226;&nbsp;&nbsp; &#8226;&#8226;&#8226;&#8226;&nbsp;&nbsp; &#8226;&#8226;&#8226;&#8226;&nbsp;&nbsp; 8294</div><div class="card-bottom"><span><small>MEMBER NAME</small><b id="card-name">JOHN DOE</b></span><span class="card-logo">N</span></div><i class="glow glow-one"></i><i class="glow glow-two"></i></div><p class="card-caption">Your virtual NIXXA Gold card is ready for you.</p></section>
+  <section class="name-editor"><label>Cardholder name<input id="name-input" value="John Doe" maxlength="26"></label></section>
+  <section class="membership-price"><span>NIXXA membership</span><div><strong>USD $1,000</strong><small>/ year</small></div><p>Required for membership application</p></section>
+  <section class="requirements"><h2>Required for membership application</h2><ol><li><span>01</span><div><b>ID or passport</b><small>A valid government-issued document</small></div><i>&#10003;</i></li><li><span>02</span><div><b>Personal details</b><small>Verified contact and address information</small></div><i>&#10003;</i></li><li><span>03</span><div><b>Security details</b><small>A secure PIN and account recovery method</small></div><i>&#10003;</i></li></ol></section>
+  <section class="payment"><h2>How you can pay for your membership</h2><div class="pay-options"><button class="active" data-payment="USD"><span class="pay-icon usd">$</span><span><b>USD wallet</b><small>Pay directly with USD</small></span><i>&#10003;</i></button><button data-payment="BTC"><span class="pay-icon btc">&#8383;</span><span><b>BTC transfer</b><small>Pay with Bitcoin from your wallet</small></span><i>&#10003;</i></button></div></section>
+  <section class="invite-card"><span class="invite-icon">&#10022;</span><div><h2>Want USD $500 towards your membership fee?</h2><p>Invite a friend to experience NIXXA Bank. When their account is activated, you both receive USD $500 in Bitcoin.</p><button id="invite">Invite a friend</button></div></section>
+  <section class="trial-card"><span>&#9675;</span><div><h2>30-day trial period</h2><p>Try NIXXA risk-free. If you are not happy with the service, you can request your money back within 30 days.</p></div></section>
+  <button class="apply" id="apply">Apply for membership</button>
+</main><div class="modal-wrap hidden" id="modal"><section class="modal"><button id="modal-close">&times;</button><div id="modal-content"></div></section></div><div class="toast" id="toast"></div><script src="app.js"></script>
+</body></html>
