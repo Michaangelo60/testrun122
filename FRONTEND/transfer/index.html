@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Transfer — NIXXA</title>
+  <link rel="stylesheet" href="../homepage/styles.css">
+  <link rel="stylesheet" href="transfer.css">
+</head>
+<body>
+  <main class="phone-app">
+    <header class="topbar"><a href="../index.html">&#8592;</a><span>Transfer</span><span></span></header>
+
+    <section class="tabs">
+      <button class="tab active" data-view="send">Send</button>
+      <button class="tab" data-view="request">Request</button>
+      <button class="tab" data-view="convert">Convert</button>
+      <button class="tab" data-view="beneficiaries">Saved</button>
+      <button class="tab" data-view="track">Tracking</button>
+    </section>
+
+    <section class="view" id="send">
+      <div class="card">
+        <label class="muted">Asset</label>
+        <div class="segmented">
+          <button data-asset="btc" class="seg active">Bitcoin</button>
+          <button data-asset="usd" class="seg">USD</button>
+        </div>
+
+        <div id="send-btc-form">
+          <label>Recipient BTC address</label>
+          <input id="btc-address" placeholder="bc1... or paste address" autocomplete="off">
+          <div class="row small-gap">
+            <label>Amount (BTC)</label>
+            <input id="btc-amount" type="number" step="0.00000001" placeholder="0.001">
+          </div>
+          <div class="muted small">≈ <span id="btc-usd">$0.00</span> USD</div>
+          <div class="row">
+            <div><label>Network fee</label><div class="muted" id="btc-fee">0.0001 BTC</div></div>
+            <div><label>Total</label><div id="btc-total">0.0011 BTC</div></div>
+          </div>
+          <div class="muted small">Estimated confirmation: <span id="btc-est">10–30 min</span></div>
+          <button id="send-btc" class="btn">Review transaction</button>
+        </div>
+
+        <div id="send-usd-form" style="display:none">
+          <label>Recipient country</label>
+          <select id="usd-country">
+            <option value="NGN">Nigeria — NGN</option>
+            <option value="GHS">Ghana — GHS</option>
+            <option value="KES">Kenya — KES</option>
+            <option value="USD">USD</option>
+          </select>
+
+          <label>Recipient account / phone</label>
+          <input id="usd-recipient" placeholder="Account number, phone or email">
+
+          <label>Amount (Local)</label>
+          <input id="local-amount" type="number" step="0.01" placeholder="1000">
+          <div class="muted small">≈ <span id="local-usd">$0.00</span> USD</div>
+
+          <div class="row">
+            <div><label>Network / payout fee</label><div class="muted" id="usd-fee">$2.00</div></div>
+            <div><label>Total</label><div id="usd-total">$1002.00</div></div>
+          </div>
+
+          <button id="send-usd" class="btn">Review transaction</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="view hidden" id="request">
+      <div class="card">
+        <label>Request asset</label>
+        <select id="request-asset"><option value="usd">USD</option><option value="btc">BTC</option></select>
+        <label>Amount</label>
+        <input id="request-amount" type="number" step="0.00000001" placeholder="250">
+        <label>To (username / phone / email)</label>
+        <input id="request-to" placeholder="John">
+        <button id="generate-request" class="btn">Generate Request</button>
+        <div id="request-result" class="muted small" style="margin-top:10px"></div>
+      </div>
+    </section>
+
+    <section class="view hidden" id="convert">
+      <div class="card">
+        <label>Convert</label>
+        <div class="row">
+          <div>
+            <label>From (BTC)</label>
+            <input id="convert-btc" type="number" step="0.00000001" placeholder="0.01">
+          </div>
+          <div>
+            <label>To (USD)</label>
+            <input id="convert-usd" type="number" placeholder="$0.00">
+          </div>
+        </div>
+        <div class="muted small">Rate: <span id="convert-rate">—</span></div>
+        <div class="muted small">Spread / fee: <input id="convert-spread" type="number" value="0.7" step="0.1">%</div>
+        <div class="muted small">Final received: <span id="convert-final">—</span></div>
+        <div class="muted small">Quote expires in <span id="convert-timer">60</span>s</div>
+        <button id="get-quote" class="btn">Get quote</button>
+      </div>
+    </section>
+
+    <section class="view hidden" id="beneficiaries">
+      <div class="card">
+        <label>Saved recipients</label>
+        <ul id="saved-list" class="muted small"></ul>
+        <label>Add recipient</label>
+        <input id="add-name" placeholder="Name">
+        <input id="add-account" placeholder="Account / Wallet">
+        <button id="add-recipient" class="btn ghost">Save recipient</button>
+      </div>
+    </section>
+
+    <section class="view hidden" id="track">
+      <div class="card">
+        <label>Recent transfers</label>
+        <ul id="trans-list" class="muted small"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="transfer.js"></script>
+</body>
+</html>
