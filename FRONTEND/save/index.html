@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+  <title>Save | Nexos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../homepage/footer-nav.css">
+</head>
+<body>
+  <main class="save-app">
+    <header class="topbar">
+      <a class="back" href="../index.html" aria-label="Back to home">&#8592;</a>
+      <h1>Wealth</h1>
+      <button class="help" type="button" aria-label="Get help">?</button>
+    </header>
+
+    <nav class="switcher" aria-label="Wealth products">
+      <button class="switch active" type="button" aria-current="page">Save</button>
+      <button class="switch" id="invest-toggle" type="button">Invest</button>
+    </nav>
+
+    <section class="intro">
+      <span class="eyebrow">NEXOS SAVE</span>
+      <h2>Build your savings, your way.</h2>
+      <p>Create goals and grow your balance with automatic deposits.</p>
+    </section>
+
+    <section class="total-card">
+      <span>Total savings</span>
+      <strong>$16,240.00</strong>
+      <small><b>+12.4%</b> this month</small>
+      <div class="card-glow" aria-hidden="true"></div>
+    </section>
+
+    <section class="goal-card">
+      <div class="section-top"><div><span class="eyebrow">ACTIVE GOAL</span><h3>Emergency fund</h3></div><span class="percent">67%</span></div>
+      <div class="progress" aria-label="67% of goal saved"><span></span></div>
+      <div class="goal-meta"><span>$16,240 saved</span><span>$24,000 goal</span></div>
+      <a href="../saving/index.html" class="manage">Manage savings <span>&#8250;</span></a>
+    </section>
+
+    <section class="quick-actions" aria-label="Savings actions">
+      <button type="button" data-toast="Start a new savings goal from Manage savings."><span>+</span>New goal</button>
+      <button type="button" data-toast="Your next automatic deposit is scheduled for 18 Sep."><span>&#8635;</span>Auto-save</button>
+    </section>
+  </main>
+  <nav class="app-footer" aria-label="Main navigation"><a href="../index.html">⌂<span>Home</span></a><a class="active" href="index.html" aria-current="page">⌁<span>Save</span></a><a href="../invest/index.html">⌁<span>Invest</span></a><a href="../profile/index.html">♙<span>Profile</span></a><a href="../support/index.html">◖<span>Support</span></a></nav>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

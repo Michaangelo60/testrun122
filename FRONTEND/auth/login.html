@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Log in | NIXXA</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="auth-app">
+    <div style="display:grid;place-items:center;margin:0 0 8px"><header class="auth-header" style="width:100%;margin-bottom:3px"><span></span><span>Welcome back</span><span></span></header><p class="tagline" style="margin-top:8px">Secure banking, wherever life takes you.</p></div>
+    <section class="login-card" style="margin-top:12px">
+      <form id="login-form">
+        <label class="field">Email address<input id="login-email" type="email" placeholder="you@example.com" required></label>
+        <label class="field">Password<span class="password-field"><input id="login-password" type="password" placeholder="Enter your password" required><button type="button" data-toggle="login-password">Show</button></span></label>
+        <a class="forgot" href="#">Forgot password?</a><button class="login-button" type="submit">Log in</button>
+      </form>
+    </section>
+    <p class="switch-auth">New to NIXXA? <a href="signup.html">Create an account</a></p>
+  </main>
+  <div class="toast" id="toast"></div><script src="auth.js"></script>
+</body>
+</html>

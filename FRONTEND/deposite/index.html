@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>Deposit USD | Nexos</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<main class="deposit-app">
+  <header class="topbar"><a href="../index.html" class="back" aria-label="Back">&#8592;</a><h1>Deposit</h1><button class="help" data-toast="Need help? Contact Nexos support.">?</button></header>
+  <section class="intro"><h2>Add money to your USD wallet</h2><p>Convert Naira to USD instantly at today&#8217;s rate.</p></section>
+  <section class="balance-card"><span>USD Wallet Balance</span><strong>$1,562.50</strong><small>&#8776; &#8358;2,500,000.00</small></section>
+  <section class="amount-section"><label for="naira-amount">You want to deposit</label><div class="amount-field"><span class="currency-flag">NG</span><span class="currency-code">NGN</span><input id="naira-amount" value="100,000" inputmode="numeric" aria-label="Naira amount"><span class="naira-sign">&#8358;</span></div><p class="input-error" id="input-error">Minimum deposit is &#8358;1,000</p><p class="quick-label">Quick amounts</p><div class="quick-amounts"><button data-amount="10000">&#8358;10,000</button><button data-amount="25000">&#8358;25,000</button><button data-amount="50000">&#8358;50,000</button><button class="active" data-amount="100000">&#8358;100,000</button><button data-amount="250000">&#8358;250,000</button><button data-amount="500000">&#8358;500,000</button></div></section>
+  <section class="conversion-card"><div class="conversion-head"><span>USD equivalent</span><span class="rate-pill">1 USD = &#8358;1,600</span></div><strong id="usd-equivalent">$62.50</strong><p>The USD amount that will be credited to your wallet.</p></section>
+  <section class="methods"><label>Payment method</label><button class="method active" data-method="Bank Transfer"><span class="method-icon">&#9830;</span><span><b>Bank Transfer</b><small>Transfer Naira from your bank</small></span><i></i></button><button class="method" data-method="Debit Card"><span class="method-icon">&#9645;</span><span><b>Debit Card</b><small>Pay securely with your card</small></span><i></i></button></section>
+  <section class="summary"><label>Deposit summary</label><div><span>Naira amount</span><b id="summary-ngn">&#8358;100,000.00</b></div><div><span>Exchange rate</span><b>&#8358;1,600 / USD</b></div><div><span>Deposit fee</span><b>$0.00</b></div><div class="receive"><span>You will receive</span><b id="summary-usd">$62.50</b></div></section>
+  <button class="continue" id="continue">Continue</button>
+</main>
+<div class="modal-wrap hidden" id="modal"><section class="modal"><button class="modal-close" id="modal-close">&times;</button><div id="modal-content"></div></section></div><div class="toast" id="toast"></div><script src="app.js"></script>
+</body></html>
