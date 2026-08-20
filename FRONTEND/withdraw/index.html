@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>Send money | NIXXA</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<main class="send-app">
+  <header><a href="../homepage/index.html">&#8592;</a><span>Send money</span><button id="help">?</button></header>
+  <section class="intro"><p class="eyebrow">NIXXA TRANSFER</p><h1>Where would you like to send?</h1><p>Choose an account type to continue your transfer.</p></section>
+  <nav class="transfer-types"><button class="active" data-mode="fiat"><span class="type-icon usd">$</span><span><b>USD transfer</b><small>Send to a bank account or NIXXA user</small></span><i>&#10003;</i></button><button data-mode="btc"><span class="type-icon btc">&#8383;</span><span><b>Bitcoin transfer</b><small>Send BTC to a wallet address</small></span><i>&#10003;</i></button></nav>
+  <section class="balance"><span id="balance-label">Available USD balance</span><b id="balance-value">$4,826.40</b><small id="balance-note">NIXXA USD Wallet</small></section>
+  <form id="send-form">
+    <section class="form-card fiat-fields"><h2>Recipient details</h2><label>Recipient name<input id="fiat-name" placeholder="Enter full name"></label><label>Email or account number<input id="fiat-account" placeholder="name@email.com or account number"></label><label>Transfer note <span>Optional</span><input id="fiat-note" placeholder="What is this payment for?"></label></section>
+    <section class="form-card btc-fields hidden"><h2>Bitcoin wallet</h2><label>Wallet address<textarea id="btc-address" rows="3" placeholder="Paste the recipient BTC wallet address"></textarea></label><button class="scan" type="button" id="scan">&#9741; Scan QR code</button><p class="network-note">Only send BTC to a Bitcoin wallet address. Transfers cannot be reversed.</p></section>
+    <section class="form-card"><h2>Amount</h2><label class="amount-input"><input id="amount" inputmode="decimal" value="100"><span id="amount-currency">USD</span></label><div class="quick-amounts fiat-fields"><button type="button" data-amount="50">$50</button><button type="button" class="active" data-amount="100">$100</button><button type="button" data-amount="200">$200</button><button type="button" data-amount="max">MAX</button></div><div class="quick-amounts btc-fields hidden"><button type="button" data-btc="0.001">0.001</button><button type="button" class="active" data-btc="0.005">0.005</button><button type="button" data-btc="0.01">0.01</button><button type="button" data-btc="max">MAX</button></div><div class="conversion"><span id="conversion-label">You will send</span><b id="conversion-value">$100.00</b></div></section>
+    <button class="review" type="submit">Review transfer</button>
+  </form>
+</main>
+<div class="modal-wrap hidden" id="modal"><section class="modal"><button class="close" id="close">&times;</button><div id="modal-content"></div></section></div><div class="toast" id="toast"></div><script src="app.js"></script>
+</body></html>

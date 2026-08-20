@@ -1,0 +1,23 @@
+/* Simple crossfade/transform animation for two images over 6s */
+html,body{height:100%;margin:0}
+body{display:flex;align-items:center;justify-content:center;background:#171111;background:radial-gradient(circle at 83% 8%, rgba(255, 122, 47, .08), transparent 26%), #171111}
+.loader{position:relative;width:260px;height:260px}
+.loader .img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:220px;height:auto;opacity:0;animation-duration:6s;animation-fill-mode:forwards}
+.loader .img1{animation-name:img1Anim}
+.loader .img2{animation-name:img2Anim}
+
+@keyframes img1Anim{
+  0%, 38%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  54%, 100%{opacity:0;transform:translate(-50%,-50%) scale(1.07)}
+}
+
+@keyframes img2Anim{
+  0%, 42%{opacity:0;transform:translate(-50%,-50%) scale(0.96)}
+  50%{opacity:0.2;transform:translate(-50%,-50%) scale(0.98)}
+  62%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  80%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1.08)}
+}
+
+/* Make images crisp on mobile */
+img{display:block;max-width:100%;height:auto}

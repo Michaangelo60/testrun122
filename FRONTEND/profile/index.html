@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Profile · Nexos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css">
+</head>
+<body>
+  <main class="phone-app">
+    <header class="topbar">
+      <a class="back" href="../homepage/index.html" aria-label="Back to home">←</a>
+      <h1 id="page-title">Profile</h1>
+      <span class="top-spacer" aria-hidden="true"></span>
+    </header>
+
+    <section id="profile-view" class="view active" aria-labelledby="profile-heading">
+      <button class="profile-card" type="button" data-open="details-view" aria-label="Open Michael Adeyemi profile details">
+        <span class="avatar">MA</span>
+        <span class="profile-copy"><strong id="profile-heading">Michael Adeyemi</strong><small>View profile details</small></span>
+        <span class="chevron">›</span>
+      </button>
+
+      <p class="section-label">ACCOUNT</p>
+      <section class="settings-list" aria-label="Account settings">
+        <button type="button" data-message="Verification centre opened"><span class="row-icon orange"><svg viewBox="0 0 24 24"><path d="m5 12 4 4 10-10"/><path d="M12 3 4 7v5c0 5 3.4 7.8 8 9 4.6-1.2 8-4 8-9V7l-8-4Z"/></svg></span><span>Verification</span><span class="row-meta">Not verified</span><span class="chevron">›</span></button>
+        <button type="button" data-message="Statements and reports opened"><span class="row-icon blue"><svg viewBox="0 0 24 24"><path d="M7 3h8l3 3v15H7z"/><path d="M10 11h5M10 15h5M10 7h1"/></svg></span><span>Statements &amp; reports</span><span class="chevron">›</span></button>
+        <button type="button" data-message="Account limits opened"><span class="row-icon purple"><svg viewBox="0 0 24 24"><path d="M5 18 18 5M11 5h7v7"/><path d="M5 5v14h14"/></svg></span><span>Account limits</span><span class="chevron">›</span></button>
+        <button type="button" data-open="security-view"><span class="row-icon green"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.7 3 7.8 7 10 4-2.2 7-5.3 7-10V6z"/><path d="M9 12h6M12 9v6"/></svg></span><span>Security</span><span class="chevron">›</span></button>
+      </section>
+
+      <p class="section-label">REWARDS &amp; SUPPORT</p>
+      <section class="settings-list" aria-label="Rewards and support settings">
+        <button type="button" data-message="Cashback rewards opened"><span class="row-icon gold"><svg viewBox="0 0 24 24"><path d="M12 3v18M16 7.5c0-1.4-1.8-2.5-4-2.5S8 6.1 8 7.5 9.8 10 12 10s4 1.1 4 2.5-1.8 2.5-4 2.5-4-1.1-4-2.5"/></svg></span><span>Cash back</span><span class="chevron">›</span></button>
+        <button type="button" data-message="Referral programme opened"><span class="row-icon pink"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2"/><path d="M3 20c.4-4 2.4-6 6-6s5.6 2 6 6M15 15c3 0 4.5 1.6 5 5"/></svg></span><span>Referral</span><span class="chevron">›</span></button>
+        <button type="button" data-message="Legal documents opened"><span class="row-icon gray"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6z"/><path d="M10 11h5M10 15h5M10 7h1"/></svg></span><span>Legals</span><span class="chevron">›</span></button>
+      </section>
+
+      <button class="sign-out" id="sign-out" type="button">Sign out</button>
+    </section>
+
+    <section id="details-view" class="view" aria-labelledby="details-heading">
+      <button class="page-back" type="button" data-back>‹ <span>Profile</span></button>
+      <div class="identity-header"><span class="avatar large">MA</span><h2 id="details-heading">Michael Adeyemi</h2><span class="tier">Tier 1</span></div>
+      <p class="section-label">PERSONAL INFORMATION</p>
+      <section class="info-card">
+        <div class="info-row"><span><small>Username</small><strong>@michaeladeyemi</strong></span><button class="copy" type="button" data-copy="@michaeladeyemi">Copy</button></div>
+        <div class="info-row"><span><small>Account number</small><strong>0123456789</strong></span><button class="copy" type="button" data-copy="0123456789">Copy</button></div>
+        <div class="info-row"><span><small>Phone number</small><strong>+234 801 234 5678</strong></span></div>
+        <div class="info-row"><span><small>Email address</small><strong>michael.adeyemi@email.com</strong></span></div>
+        <div class="info-row"><span><small>Verification number</small><strong>VER-2026-1847</strong></span></div>
+        <div class="info-row"><span><small>Next of kin</small><strong>Grace Adeyemi</strong></span></div>
+        <div class="info-row"><span><small>Marital status</small><strong>Single</strong></span></div>
+      </section>
+      <p class="section-label danger-label">ACCOUNT ACTIONS</p>
+      <section class="danger-card">
+        <button type="button" data-message="Account restriction request started"><span><strong>Restrict account</strong><small>Temporarily block transactions</small></span><b>›</b></button>
+        <button type="button" id="delete-account"><span><strong>Delete account</strong><small>Remove your Nexos account permanently</small></span><b>›</b></button>
+      </section>
+    </section>
+
+    <section id="security-view" class="view" aria-labelledby="security-heading">
+      <button class="page-back" type="button" data-back>‹ <span>Profile</span></button>
+      <div class="view-intro"><span class="shield">⌾</span><h2 id="security-heading">Security</h2><p>Manage how your account and balances are protected.</p></div>
+      <section class="security-card">
+        <button class="security-row" type="button" id="set-pin"><span class="row-icon orange">#</span><span><strong>Transaction PIN</strong><small>Set a PIN for transfers and payments</small></span><b>Set PIN</b></button>
+        <label class="security-row toggle-row"><span class="row-icon blue">▣</span><span><strong>Allow screenshots</strong><small>Permit screenshots in the Nexos app</small></span><input id="screenshots" type="checkbox" role="switch"><i aria-hidden="true"></i></label>
+        <label class="security-row toggle-row"><span class="row-icon purple">◐</span><span><strong>Panic balance</strong><small>Show a safe balance when enabled</small></span><input id="panic-balance" type="checkbox" role="switch"><i aria-hidden="true"></i></label>
+      </section>
+      <p class="security-note">Your security preferences are stored only on this device in this demonstration.</p>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

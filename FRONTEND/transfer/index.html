@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Transfer | Nexos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="app">
+        <header><a href="../homepage/index.html">←</a>
+            <h1>Transfer</h1><button id="history">⌘</button>
+        </header>
+        <section class="hero"><span>MOVE MONEY WITH CONFIDENCE</span>
+            <h2>Where would you like to move money?</h2>
+            <p>BTC and local-currency transfers use separate, clear payment routes.</p>
+        </section>
+        <nav class="tabs"><button class="active" data-view="send">Send</button><button
+                data-view="request">Request</button><button data-view="convert">Convert</button><button
+                data-view="track">Track</button></nav>
+
+        <section class="view active" id="send">
+            <div class="mode-grid"><button class="mode active" data-mode="usd"><b>$</b><span><strong>Send
+                            USD</strong><small>Local bank, mobile money or USD account</small></span></button><button
+                    class="mode" data-mode="btc"><b>₿</b><span><strong>Send Bitcoin</strong><small>Send BTC on the
+                            Bitcoin network</small></span></button><button class="mode"
+                    data-mode="user"><b>↗</b><span><strong>Send to Nexos user</strong><small>By username, phone, email
+                            or ID</small></span></button></div>
+            <section class="transfer-panel" id="usd-panel">
+                <h3>Send USD internationally</h3><label>Destination country<select id="country">
+                        <option value="NGN">Nigeria 🇳🇬 — NGN bank account</option>
+                        <option value="GHS">Ghana 🇬🇭 — GHS bank / mobile money</option>
+                        <option value="KES">Kenya 🇰🇪 — KES bank / mobile money</option>
+                        <option value="USD">USD — supported USD account</option>
+                    </select></label><label>Recipient account or mobile money<input
+                        placeholder="Account number or mobile money number"></label><label>You send (USD)<input
+                        class="usd-input" id="usd-send" type="number" value="100" min="0" inputmode="decimal"><small
+                        id="usd-btc">≈ 0.001695 BTC</small></label>
+                <div class="quote"><span>Recipient receives</span><b id="recipient-amount">₦160,000.00</b><small
+                        id="recipient-currency">Nigerian naira · Demo FX rate</small></div><button class="primary"
+                    data-review="USD transfer">Review USD transfer</button>
+            </section>
+            <section class="transfer-panel hidden" id="btc-panel">
+                <h3>Send Bitcoin</h3><label>Recipient BTC address<div class="inline"><input
+                            placeholder="bc1… or 3…"><button id="scan">Scan QR</button></div></label><label>Amount in
+                    BTC<input id="btc-send" type="number" value="0.001" min="0" step="0.000001"
+                        inputmode="decimal"><small id="btc-usd">≈ $59.00 USD</small></label>
+                <div class="quote"><span>Network fee</span><b>0.000012 BTC <em>≈ $0.71</em></b><span>Total
+                        amount</span><b id="btc-total">0.001012 BTC</b><small>Estimated confirmation: 10–30
+                        minutes</small></div><button class="primary" data-review="BTC transfer">Review BTC
+                    transaction</button>
+            </section>
+            <section class="transfer-panel hidden" id="user-panel">
+                <h3>Send to a Nexos user</h3><label>Find a user<input id="user-search"
+                        placeholder="Username, phone number, email or user ID"></label>
+                <div class="user-match" id="user-match"><span>AA</span>
+                    <div><b>Asogwa Iloabuchi</b><small>@asogwa · Verified Nexos user</small></div>
+                </div><label>Send currency<select id="user-currency">
+                        <option value="USD">USD</option>
+                        <option value="BTC">BTC</option>
+                    </select></label><label>Amount<input id="user-amount" type="number" value="100"
+                        inputmode="decimal"><small id="user-equivalent">≈ 0.001695 BTC</small></label><button
+                    class="primary" data-review="Nexos user transfer">Review transfer</button>
+            </section>
+            <section class="limits">
+                <div><span>Daily transfer limit</span><b>$5,000</b></div>
+                <div><span>Remaining today</span><b>$3,750</b></div>
+            </section>
+            <h3 class="list-title">Saved recipients</h3>
+            <section class="beneficiaries"><button><i>NG</i><span><b>Mom</b><small>GTBank
+                            Nigeria</small></span><em>›</em></button><button><i>GH</i><span><b>John</b><small>MTN MoMo
+                            Ghana</small></span><em>›</em></button><button><i>KE</i><span><b>David</b><small>M-Pesa
+                            Kenya</small></span><em>›</em></button><button><i>₿</i><span><b>My BTC
+                            wallet</b><small>bc1qxy…hx0wlh</small></span><em>›</em></button></section>
+        </section>
+
+        <section class="view" id="request">
+            <section class="transfer-panel">
+                <h3>Request money</h3><label>Request from<input
+                        placeholder="John’s name, email or username"></label><label>Request currency<select
+                        id="request-currency">
+                        <option>USD</option>
+                        <option>BTC</option>
+                    </select></label><label>Amount<input id="request-amount" type="number" value="250"
+                        inputmode="decimal"><small id="request-equivalent">≈ 0.004237 BTC</small></label><button
+                    class="primary" id="generate-request">Generate request</button>
+            </section>
+            <section class="request-card hidden" id="request-card">
+                <div class="qr">▦</div>
+                <div><span>PAYMENT REQUEST</span>
+                    <h3 id="request-title">Pay $250 → Michael</h3>
+                    <p id="request-link">nexos.app/pay/michael-250</p><button id="copy-request">Copy payment
+                        link</button>
+                </div>
+            </section>
+        </section>
+
+        <section class="view" id="convert">
+            <section class="transfer-panel">
+                <h3>BTC → USD conversion</h3>
+                <p class="muted">This is a separate conversion, not a transfer.</p><label>BTC amount<input
+                        id="convert-btc" type="number" value="0.01" min="0" step="0.000001"><small id="convert-usd">≈
+                        $590.00 USD</small></label>
+                <div class="quote"><span>Exchange rate</span><b>1 BTC = $59,000</b><span>Spread / fee</span><b>1.2% <em
+                            id="convert-fee">$7.08</em></b><span>Final USD received</span><b
+                        id="final-usd">$582.92</b><small>Quote expires in <b id="timer">00:45</b></small></div><button
+                    class="primary" data-review="BTC conversion">Review conversion</button>
+            </section>
+            <section class="flow"><b>BTC wallet</b><span>↓</span><b>Convert</b><span>↓</span><b>USD balance</b>
+            </section>
+        </section>
+
+        <section class="view" id="track">
+            <section class="tracking"><span class="status">PROCESSING</span>
+                <h3>International transfer</h3>
+                <p>Transaction ID: <b>NX-TRF-8A29F6</b></p>
+                <ol>
+                    <li class="done">Processing</li>
+                    <li class="done">Compliance check</li>
+                    <li class="active">FX conversion</li>
+                    <li>Bank / mobile-money payout</li>
+                    <li>Completed</li>
+                </ol>
+            </section>
+            <section class="tracking"><span class="status btc">BTC PENDING</span>
+                <h3>Bitcoin transfer</h3>
+                <p>Transaction ID: <b>NX-BTC-4C19E2</b></p>
+                <ol>
+                    <li class="done">Pending</li>
+                    <li class="active">Network confirmation</li>
+                    <li>Confirmed</li>
+                    <li>Completed</li>
+                </ol>
+            </section>
+        </section>
+    </main>
+    <div class="modal hidden" id="review">
+        <section><button class="close">×</button><span>REVIEW TRANSACTION</span>
+            <h2 id="review-title">Transfer</h2>
+            <p>Confirm with your transaction PIN or biometric authentication to continue.</p><label>Transaction
+                PIN<input type="password" inputmode="numeric" maxlength="4" placeholder="••••"></label><button
+                class="primary" id="confirm">Confirm and send</button>
+        </section>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>
