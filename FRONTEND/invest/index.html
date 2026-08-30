@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>Nexos Finance</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="invest-app">
+    <section class="screen active" id="finance-screen">
+      <header class="screen-header">
+        <a href="../homepage/index.html" aria-label="Back to homepage" class="back-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </a>
+        <div>
+          <p class="eyebrow">NEXOS FINANCE</p>
+          <h1>Finance</h1>
+        </div>
+        <div class="header-space"></div>
+      </header>
+
+      <div class="finance-slider" aria-live="polite">
+        <div class="slider-track">
+          <article class="finance-slide active" data-slide="saving">
+            <div class="slide-header">
+              <span class="chip green">Savings</span>
+            </div>
+            <h2>Grow your money with a smart savings plan.</h2>
+            <p>Set monthly goals, track your balance, and keep your emergency fund moving without friction.</p>
+            <div class="slide-metrics">
+              <div>
+                <small>Balance</small>
+                <strong>$2,450.00</strong>
+              </div>
+              <div>
+                <small>Goal</small>
+                <strong>Emergency</strong>
+              </div>
+            </div>
+            <button class="slide-action" data-go="saving" type="button">Open savings</button>
+          </article>
+
+          <article class="finance-slide" data-slide="loan">
+            <div class="slide-header">
+              <span class="chip orange">Loan</span>
+            </div>
+            <h2>Access flexible funding when you need it.</h2>
+            <p>Review borrowing options, compare repayment terms, and move quickly from request to funding.</p>
+            <div class="slide-metrics">
+              <div>
+                <small>Available</small>
+                <strong>$66,267</strong>
+              </div>
+              <div>
+                <small>Rate</small>
+                <strong>9.9%</strong>
+              </div>
+            </div>
+            <button class="slide-action" data-go="loan" type="button">Open loan</button>
+          </article>
+        </div>
+
+        <div class="slider-controls">
+          <button class="dot active" type="button" data-slide-nav="saving" aria-label="Open savings slide"></button>
+          <button class="dot" type="button" data-slide-nav="loan" aria-label="Open loan slide"></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

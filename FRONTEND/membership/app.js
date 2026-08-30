@@ -1,0 +1,10 @@
+const $=s=>document.querySelector(s);
+document.querySelector('header a').href='file:///C:/Users/I%20DONT%20KNOW%20MY%20NAME/Desktop/FRONTEND/homepage/index.html';
+const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)};
+$('#help').onclick=()=>toast('Premium membership costs $500 annually. Loan approval is assessed separately.');
+$('#loan-help').onclick=()=>toast('Premium status lets you apply for a loan; it does not guarantee approval.');
+$('#open-payment').onclick=()=>$('#modal').classList.remove('hidden');
+$('.close').onclick=()=>$('#modal').classList.add('hidden');
+$('#modal').onclick=e=>{if(e.target===$('#modal'))$('#modal').classList.add('hidden')};
+let paying=false;
+$('#confirm').onclick=()=>{if(paying)return;paying=true;const b=$('#confirm');b.disabled=true;b.textContent='Processing payment…';setTimeout(()=>{const now=new Date(),renewal=new Date(now);renewal.setFullYear(now.getFullYear()+1);const f=d=>d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});$('#start').textContent=f(now);$('#renewal').textContent=f(renewal);$('#status').textContent='ACTIVE';$('#detail-status').textContent='Active';$('#modal').classList.add('hidden');$('#page').classList.add('hidden');$('#success').classList.remove('hidden');paying=false;b.disabled=false;b.textContent='Confirm Payment'},1200)};

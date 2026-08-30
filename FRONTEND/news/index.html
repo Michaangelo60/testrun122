@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>NIXXA News</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="news-app">
+    <header class="topbar">
+      <a href="../homepage/index.html" class="back" aria-label="Back to home">&#8592;</a>
+      <div>
+        <p>NIXXA</p>
+        <h1>News</h1>
+      </div>
+      <button class="icon-btn" type="button" data-message="News updates are live">&#9881;</button>
+    </header>
+
+    <section class="hero-card">
+      <span class="badge">MARKET</span>
+      <h2>USD markets are moving steadily</h2>
+      <p>Fresh updates on rates, wallet activity, and macro trends affecting your holdings.</p>
+    </section>
+
+    <section class="news-list">
+      <article class="news-item featured">
+        <div class="meta-row">
+          <span class="tag orange">Bitcoin</span>
+          <time>Today</time>
+        </div>
+        <h3>BTC remains resilient as demand holds above key support.</h3>
+        <p>Analysts are watching adoption and global liquidity levels as BTC continues to trade with strong momentum.</p>
+      </article>
+
+      <article class="news-item">
+        <div class="meta-row">
+          <span class="tag green">Wallet</span>
+          <time>Yesterday</time>
+        </div>
+        <h3>NIXXA wallet security upgrades roll out across all tiers.</h3>
+        <p>New protection layers and smarter alerts help users stay on top of every transfer and payment.</p>
+      </article>
+
+      <article class="news-item">
+        <div class="meta-row">
+          <span class="tag purple">Finance</span>
+          <time>2 days ago</time>
+        </div>
+        <h3>More flexibility is coming to savings and borrowing plans.</h3>
+        <p>Members can expect easier access to funds and better visibility into savings performance.</p>
+      </article>
+
+      <article class="news-item">
+        <div class="meta-row">
+          <span class="tag blue">Global</span>
+          <time>3 days ago</time>
+        </div>
+        <h3>Cross-border activity remains strong as local rails improve.</h3>
+        <p>Higher transaction confidence is helping wallet users move funds more efficiently across regions.</p>
+      </article>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
